@@ -13,7 +13,7 @@ function numberRandom() {
     }
 
     function makeCounter() {
-        let currentCount = 3;
+        let currentCount = 10;
         return function () {
             currentCount--;
             return currentCount;
