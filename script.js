@@ -12,6 +12,16 @@ function numberRandom() {
         return random;
     }
 
+    function makeCounter() {
+        let currentCount = 3;
+        return function () {
+            currentCount--;
+            return currentCount;
+        }
+    }
+
+    let counter = makeCounter();
+
     random = funcRandom();
     console.log('Случайное число = ' + random);
 
@@ -23,15 +33,27 @@ function numberRandom() {
             alert('Игра заканчилась');
         } else {
             if (isNumber(numberUser)) {
-                if (numberUser > random) {
-                    alert('Загаданное число меньше');
-                    bool = false;
-                }
-                else if (numberUser < random) {
-                    alert('Загаданное число больше');
-                    bool = false;
+                if (counter() !== 0) {
+                    if (numberUser > random) {
+                        alert('Загаданное число меньше, осталось попыток ' + counter());
+                        bool = false;
+                    }
+                    else if (numberUser < random) {
+                        alert('Загаданное число больше, осталось попыток ' + counter());
+                        bool = false;
+                    } else {
+                        if (confirm('Поздравляю, Вы угадали!!! Хотели бы сыграть еще?')) {
+                            numberRandom();
+                        } else {
+                            alert('Игра заканчилась');
+                        }
+                    }
                 } else {
-                    alert('Поздравляю, число было угадано!!!');
+                    if (confirm('Попытки закончились, хотите сыграть еще?')) {
+                        numberRandom();
+                    } else {
+                        alert('Игра заканчилась');
+                    }
                 }
             } else {
                 alert('Введи число!');
