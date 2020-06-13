@@ -34,6 +34,7 @@ function numberRandom() {
         } else {
             if (isNumber(numberUser)) {
                 let count = counter();
+                
                 if (count !== 0) {
                     if (numberUser > random) {
                         alert('Загаданное число меньше, осталось попыток ' + count);
