@@ -33,13 +33,14 @@ function numberRandom() {
             alert('Игра заканчилась');
         } else {
             if (isNumber(numberUser)) {
-                if (counter() !== 0) {
+                let count = counter();
+                if (count !== 0) {
                     if (numberUser > random) {
-                        alert('Загаданное число меньше, осталось попыток ' + counter());
+                        alert('Загаданное число меньше, осталось попыток ' + count);
                         bool = false;
                     }
                     else if (numberUser < random) {
-                        alert('Загаданное число больше, осталось попыток ' + counter());
+                        alert('Загаданное число больше, осталось попыток ' + count);
                         bool = false;
                     } else {
                         if (confirm('Поздравляю, Вы угадали!!! Хотели бы сыграть еще?')) {
